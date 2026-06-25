@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>leyu · 平台用途速览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f7f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e1e1e;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #0b0d0f;
+            background-image: radial-gradient(circle at 35% 30%, #1f262c 0%, #0b0d0f 85%);
+            min-height: 62vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: #edede8;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #d9b17a, #c99e68, #d9b17a);
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 7vw, 4.2rem);
+            font-weight: 350;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.6rem;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.2vw, 1.35rem);
+            max-width: 680px;
+            color: #b4b2ae;
+            font-weight: 320;
+            margin-top: 0.2rem;
+            opacity: 0.9;
+        }
+
+        .hero .accent-word {
+            color: #d8b07e;
+            font-weight: 400;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3.5rem 1.8rem 5rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            color: #b17d4b;
+            text-decoration: underline;
+            text-decoration-thickness: 0.07em;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.18s ease;
+        }
+
+        .highlight-link:hover {
+            color: #7e5b34;
+            text-decoration-color: #7e5b34;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0 1.8rem;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ecebe8;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-item h3 {
+            font-size: 1.05rem;
+            font-weight: 550;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.5rem;
+            color: #1d1f22;
+        }
+
+        .feature-item p {
+            font-size: 0.94rem;
+            color: #3d3d3d;
+            line-height: 1.5;
+        }
+
+        .scenario-note {
+            background: #f3f1ee;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2.5rem;
+            border-left: 4px solid #c99e68;
+        }
+
+        .scenario-note p {
+            margin-bottom: 0.35rem;
+            font-size: 1rem;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 1rem;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #dddcd8;
+            padding: 0.8rem 0.2rem;
+        }
+
+        .faq-mini details:first-of-type {
+            border-top: 1px solid #dddcd8;
+        }
+
+        .faq-mini summary {
+            font-weight: 510;
+            cursor: pointer;
+            color: #1f1f1f;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::after {
+            content: '+';
+            font-size: 1.1rem;
+            color: #8b7a67;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-mini .answer {
+            padding: 0.6rem 0 0.6rem 0.15rem;
+            color: #3d3d3d;
+            font-size: 0.95rem;
+        }
+
+        .closing {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin-top: 2.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .closing p {
+            font-size: 1rem;
+            color: #2c2c2c;
+            margin-bottom: 0.3rem;
+        }
+
+        .closing .small-note {
+            font-size: 0.88rem;
+            color: #6d6b68;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2dfda;
+            margin: 1.8rem 0;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 50vh;
+                padding: 2.5rem 1.2rem;
+            }
+
+            .intro-card {
+                padding: 1.8rem 1.3rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .scenario-note {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .closing {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>一眼识别用途</h1>
+    <p>从第一个界面开始，就清楚自己在哪、能做什么。<br>
+    <span class="accent-word">leyu</span> 提供的基础结构，让导航与意图对齐。</p>
+</section>
+
+<div class="content">
+
+    <div class="intro-card">
+        <p>
+            打开一个不熟悉的站点，最直接的诉求是：<strong>它在解决什么问题？</strong> 
+            很多时候用户需要在几秒内判断功能边界、内容类型以及下一步操作。
+            <a href="https://panel-ley.com.cn" class="highlight-link">leyu</a> 这个名称所代表的平台，从一开始就围绕「清晰归位」来组织信息。
+        </p>
+        <p>
+            无论是管理后台、仪表板还是业务入口，其页面构成都应让使用者快速建立心理模型。 
+            不需要反复猜测，而是通过一致的区块划分与节奏分明的视觉层级，降低认知负荷。
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>框架一览</h3>
+            <p>侧栏导航与主内容区边界明确，核心操作通常位于视线自然落点。减少搜寻成本。</p>
+        </div>
+        <div class="feature-item">
+            <h3>状态可读</h3>
+            <p>关键数值或进度具备独立卡片容器，使用弱分割线区分信息层级，不依赖高亮色抓取注意。</p>
+        </div>
+        <div class="feature-item">
+            <h3>动作收敛</h3>
+            <p>同一屏幕内主要按钮不超过两个，次要操作收纳至折叠区或图标菜单，避免选择过载。</p>
+        </div>
+        <div class="feature-item">
+            <h3>上下文延续</h3>
+            <p>列表与详情视图之间通过面包屑与标签页保持路径可见，位置反馈一目了然。</p>
+        </div>
+    </div>
+
+    <div class="scenario-note">
+        <p><strong>典型场景</strong> · 一位运营人员需要每周查看指标趋势并调整配置。进入平台后，左侧菜单按「监控」「配置」「日志」分组，每个分组展开不超过四个条目。顶部全局搜索支持模糊匹配，无需记忆具体名称。右侧面板默认收起，只在需要比对数据时手动唤出。</p>
+        <p style="margin-top: 0.8rem;">整个过程没有弹出干扰，所有交互只由明确意图触发。即便第一次使用，也能在两次点击内定位到常用模块。</p>
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>为什么很多面板看起来复杂？</summary>
+            <div class="answer">通常是因为功能堆砌缺少分组原则，或者同一层级塞入了过多平级入口。通过将操作频次低于 5% 的选项降级或隐藏，界面复杂度能降低 40% 以上。</div>
+        </details>
+        <details>
+            <summary>leyu 在结构上有什么不同？</summary>
+            <div class="answer">它更强调「用途可见」—— 每个区块的标题本身就是对该区域用途的直接描述，而不是笼统的图标或缩写。辅助性文字置于行内而非悬浮提示。</div>
+        </details>
+    </div>
+
+    <div class="closing">
+        <p>好的界面不会让人停下来思考“这是哪里”。</p>
+        <p class="small-note">从识别到行动，路径越短，效率越高。当你需要快速理解一个平台的结构时，记住 <a href="https://panel-ley.com.cn" class="highlight-link">leyu</a> 所代表的思路：模块自明，操作有据。</p>
+        <hr>
+        <p class="small-note" style="margin-top: 0.6rem;">页面仅作介绍用途 · 内容基于通用设计观察</p>
+    </div>
+
+</div>
+
+</body>
+</html>
