@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayx · 功能速览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02), 0 2px 10px rgba(0, 0, 0, 0.02);
+      padding: 3.5rem 2.8rem;
+      transition: padding 0.2s;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      .page {
+        padding: 2.2rem 1.4rem;
+        border-radius: 20px;
+      }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+      color: #0f172a;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #64748b;
+      border-left: 3px solid #a5b4fc;
+      padding-left: 1rem;
+      margin-bottom: 2.5rem;
+      font-weight: 380;
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+    }
+
+    .intro-question {
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+      font-size: 1.05rem;
+      color: #1e293b;
+      border: 1px solid #e2e8f0;
+    }
+
+    .intro-question strong {
+      font-weight: 550;
+      color: #3b3f5c;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 2rem 0 2.2rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+      font-size: 1.02rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li::before {
+      content: "▹";
+      color: #818cf8;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      flex-shrink: 0;
+    }
+
+    .scene-block {
+      background: #f8faff;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.2rem 0 1.8rem;
+      border: 1px solid #e9edf5;
+    }
+
+    .scene-block h3 {
+      font-size: 1.1rem;
+      font-weight: 540;
+      margin-bottom: 0.7rem;
+      color: #1e293b;
+      letter-spacing: 0.01em;
+    }
+
+    .scene-block p {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .faq-mini {
+      margin: 2.2rem 0 1.2rem;
+      padding-top: 0.6rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #eef2f6;
+      padding: 0.6rem 1.2rem;
+      transition: background 0.1s;
+    }
+
+    .faq-mini details[open] {
+      background: #fafcff;
+      border-color: #d9e2ef;
+    }
+
+    .faq-mini summary {
+      font-weight: 480;
+      cursor: pointer;
+      color: #1f2a44;
+      padding: 0.2rem 0;
+      font-size: 1rem;
+    }
+
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem;
+      font-size: 0.96rem;
+      color: #3b4a5e;
+    }
+
+    .closing {
+      margin-top: 2.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #eef2f6;
+      font-size: 1rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .inline-link {
+      color: #3b4a6b;
+      text-decoration: none;
+      border-bottom: 1px solid #b9c7dd;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 470;
+    }
+
+    .inline-link:hover {
+      color: #0f172a;
+      border-bottom-color: #818cf8;
+    }
+
+    .small-note {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: #8a99b5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>ayx</h1>
+  <div class="subhead">一个想让你更快找到方向的轻量信息站点</div>
+
+  <p>
+    打开一个新网站，第一眼就想知道“这里能做什么”、“和我有什么关系”。<br>
+    <strong>ayx</strong> 的设计出发点很简单：不堆砌无关元素，让内容自己说话。
+  </p>
+
+  <div class="intro-question">
+    <strong>如果你也常遇到这些情况：</strong><br>
+    打开的页面介绍模棱两可，翻半天找不到核心功能；或是信息密度太低，读了等于没读。那么这里或许正好合你习惯。
+  </div>
+
+  <p>
+    这个站点不是什么万能平台，而是一个围绕特定主题做了整理与呈现的线上空间。它没有花哨的启动动画，也没有强制注册的弹窗——你直接看到的就是它最想让你看到的。通过简洁的导航与清晰的区块划分，大多数人在几十秒内就能判断是否是自己需要的内容。
+  </p>
+
+  <ul class="feature-list">
+    <li><strong>主题聚焦</strong> — 每个页面都围绕明确的方向展开，避免信息过载</li>
+    <li><strong>低认知负荷</strong> — 不多用一张装饰图，重点内容用文字与克制排版传达</li>
+    <li><strong>直接访问</strong> — 无需创建账号即可浏览主要信息，减少中间步骤</li>
+    <li><strong>持续更新</strong> — 内容根据实际情况补充，保持与当下需求同步</li>
+  </ul>
+
+  <div class="scene-block">
+    <h3>日常使用场景举例</h3>
+    <p>如果你在找一个能快速了解某个话题的信息页，不希望被广告或冗长文案干扰——<a href="https://webs-m-ayx.com" class="inline-link">ayx</a> 很可能符合你的预期。它适合在碎片时间里浏览，也适合作为信息查找的起点。</p>
+    <p style="margin-top:0.8rem;">无论是通过手机还是电脑打开，页面都会自适应调整，阅读体验保持一致。</p>
+  </div>
+
+  <div class="faq-mini">
+    <details>
+      <summary>这个网站主要提供什么？</summary>
+      <p>ayx 是一个以信息整理与呈现为主的轻量站点，内容围绕特定领域展开，结构清晰，便于快速浏览或查找。</p>
+    </details>
+    <details>
+      <summary>需要注册或付费吗？</summary>
+      <p>目前浏览站内主要内容不需要注册或付费。访问时就像打开一篇结构化的文章，即开即用。</p>
+    </details>
+    <details>
+      <summary>有什么特别的技术要求吗？</summary>
+      <p>不需要。任何现代浏览器（包括手机默认浏览器）都能正常显示，页面加载速度也经过优化。</p>
+    </details>
+  </div>
+
+  <div class="closing">
+    如果你习惯了高效获取信息，不愿意在导航和营销话术里绕路，那么不妨把 <a href="https://webs-m-ayx.com" class="inline-link">ayx</a> 放进书签。它不喧哗，但足够直接。
+  </div>
+
+  <div class="small-note">— 简介页 · 内容持续迭代 —</div>
+</div>
+</body>
+</html>
